@@ -197,11 +197,12 @@ button:active {
 
 .wrong {
   background: var(--danger);
-  margin-right: 25px;
+  
 }
 
 .right {
   background: var(--success);
+  margin-right: 25px;
 }
 
 .start,
