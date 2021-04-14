@@ -8,12 +8,14 @@ const startForm = document.getElementById('start-form');
 const radioContainers = document.querySelectorAll('.radio-container');
 const radioInputs = document.querySelectorAll('input');
 const bestScores = document.querySelectorAll('.best-score-value');
+
 // Countdown Page
 const countdown = document.querySelector('.countdown');
 // Game Page
 const itemContainer = document.querySelector('.item-container');
 // Score Page
 const finalTimeEl = document.querySelector('.final-time');
+const wrongAnswersEl = document.querySelector('.wrong-answers');
 const baseTimeEl = document.querySelector('.base-time');
 const penaltyTimeEl = document.querySelector('.penalty-time');
 const playAgainBtn = document.querySelector('.play-again');
@@ -37,6 +39,7 @@ let baseTime = 0;
 let penaltyTime = 0;
 let finalTime = 0;
 let finalTimeDisplay = '0.0';
+let wrongAnswers = 0 
 
 // Scroll
 let valueY = 0;
@@ -110,6 +113,7 @@ function scoresToDOM() {
   finalTimeDisplay = finalTime.toFixed(1);
   baseTime = timePlayed.toFixed(1);
   penaltyTime = penaltyTime.toFixed(1);
+  wrongAnswersEl.textContent = !(penaltyTime / 0.5) ? `Congratulations ${penaltyTime / 0.5} Wrong answers` : `${penaltyTime / 0.5} Wrong answers`
   baseTimeEl.textContent = `Base Time: ${baseTime}s`;
   penaltyTimeEl.textContent = `Penalty: +${penaltyTime}s`;
   finalTimeEl.textContent = `${finalTimeDisplay}s`;
